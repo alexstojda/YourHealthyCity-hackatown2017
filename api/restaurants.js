@@ -2,8 +2,18 @@ const geolib = require('geolib')
 const router = require('express').Router()
 
 router.get('/', (req, res) => {
+  const position = {
+    latitude: parseFloat(req.query.latitude),
+    longitude: parseFloat(req.query.longitude)
+  }
+  const radiusMeters = parseInt(req.query.radius) || 500
+
   const restaurants = getRestaurants()
-  res.send(restaurants)
+  const restaurantsInRadius = restaurants.filter(restaurant => {
+      return geolib.getDistance(position, restaurant.location) <= radiusMeters
+  })
+
+  res.send(restaurantsInRadius)
 })
 
 function getRestaurants(){
