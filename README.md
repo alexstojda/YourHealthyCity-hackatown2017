@@ -1,4 +1,18 @@
-YourHealthy.city
+# Healthy City APP
+
+## Getting Started
+1- `git clone https://github.com/napcs/node-livereload.git`
+
+2- Install [NodeJS](https://nodejs.org/en/)
+
+3- Go inside directory `cd hackatown2017`
+
+4- Install "nodemon" for live reload `npm install -g nodemon`
+
+5- Run the server using nodemon `nodemon index.js`
+
+6- Browse your app on `localhost:5000` !
+
 
 # node-js-getting-started
 
