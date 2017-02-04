@@ -1,7 +1,7 @@
 # Healthy City APP
 
 ## Getting Started
-1- `git clone https://github.com/napcs/node-livereload.git`
+1- `git clone https://github.com/skiracerdude/hackatown2017.git`
 
 2- Install [NodeJS](https://nodejs.org/en/)
 
