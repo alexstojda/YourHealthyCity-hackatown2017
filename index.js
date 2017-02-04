@@ -13,6 +13,9 @@ app.get('/', function(request, response) {
   response.render('index');
 });
 
+const restaurantsAPI = require(`${__dirname}/api/restaurants`)
+app.use('/restaurants', restaurantsAPI)
+
 // stub api call for restaurants until the backend is implemented
 app.get('/emeraldrestaurants', (req, res) => {
   res.send([
