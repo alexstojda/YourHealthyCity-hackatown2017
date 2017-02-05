@@ -110,18 +110,18 @@ function sortByHighestRating(restaurants){
 }
 
 function collapseSearch(){
-  searchForm = $('#search-form')
+  searchForm = $('.search-card')
   searchToggle = $('#search-toggle')
 
   searchForm.hide()
   $('#search-form-header').hide()
   $('#search').css('top', 58)
-  searchToggle.show()
+  searchToggle.css('display', 'inline-block')
 }
 
 function expandSearch(){
   $('#search-toggle').hide()
   $('#search-form-header').show()
   $('#search').css('top', 10)
-  $('#search-form').show()
+  $('.search-card').show()
 }

@@ -96,6 +96,9 @@ function showRestaurantDetails(restaurant){
   // set name
   detailsElem.find('.name').text(restaurant.name)
 
+  // set gmaps link
+  detailsElem.find('.link-gmaps').attr('href', 'https://www.google.com/maps/preview/@' + restaurant.location.latitude + ',' + restaurant.location.longitude + ',7z')
+
   // set meals
   mealsElem.html('')
   restaurant.meals.forEach(meal => {
@@ -104,6 +107,9 @@ function showRestaurantDetails(restaurant){
 
     var decimalRating = meal.rating % 1
     var halfApple = 0.75 > decimalRating && decimalRating > 0.25
+
+    // display half an apple if there's nothing
+    if (apples === 0 && decimalRating && decimalRating <= 0.25){ halfApple = true }
     var apples = Math.floor(meal.rating)
 
     // display apples
@@ -119,6 +125,7 @@ function showRestaurantDetails(restaurant){
       <a class="meal-name">${meal.name}</a>
       <span class="meal-rating rating-${meal.rating}">${(apples || halfApple) && applesHtml.html() || 'N/A'}</span>
     </p>`)
+
 
     // show/hide meal details on click
     mealElem.on('click', e => {

@@ -19,7 +19,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: calc(100% - 56px);
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -31,6 +31,10 @@
   </head>
 
   <body>
+    <nav class="main-navbar navbar navbar-dark green">
+      <a id="search-toggle" class="search-toggle" onclick="expandSearch()">Search</a>
+      <img class="main-logo" src="Logowithstroke.png"/>
+    </nav>
     <% include partials/search.ejs %>
 
     <!-- Google Maps -->
