@@ -1,5 +1,5 @@
 const router = require('express').Router()
-require('./db.js');
+const db = require('./db.js');
 
 router.get('/', (req, res) => {
     const position = {
@@ -8,15 +8,9 @@ router.get('/', (req, res) => {
     }
     const radiusMeters = parseInt(req.query.radius) || 500
 
-    getRestaurantsInRadius(position, radiusMeters, function (restaurantsInRadius) {
+    db.getRestaurantsInRadius(position, radiusMeters, function (restaurantsInRadius) {
         res.send(restaurantsInRadius);
     });
-
-    // const restaurants = getRestaurants();
-    // const restaurantsInRadius = restaurants.filter(restaurant => {
-    //     return geolib.getDistance(position, restaurant.location) <= radiusMeters
-    // })
-    // res.send(restaurantsInRadius)
 });
 
 module.exports = router;

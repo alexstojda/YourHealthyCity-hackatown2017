@@ -1,0 +1,37 @@
+<div id="search" class="card search-card">
+  <header id="search-form-header">
+    <button type="button" class="close next-to-h4" onclick="collapseSearch()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 class="looking-for">I'm looking to eat...</h3>
+  </header>
+
+  <div class="card-block">
+    <a id="search-toggle" class="search-toggle" onclick="expandSearch()">Search</a>
+
+    <form id="search-form" class="search-form">
+
+      <div class="md-form">
+        <input type="number" id="calories" class="form-control">
+        <label for="calories" class="">Calories</label>
+      </div>
+
+      <div class="md-form">
+        <input type="number" id="carbohydrates" class="form-control">
+        <label for="carbohydrates" class="">Carbohydrates (g)</label>
+      </div>
+
+      <div class="md-form">
+        <input type="number" id="proteins" class="form-control">
+        <label for="proteins" class="">Proteins (g)</label>
+      </div>
+
+      <div class="md-form">
+        <input type="number" id="fats" class="form-control">
+        <label for="fats" class="">Fats (g)</label>
+      </div>
+
+      <button type="button" class="btn btn-primary pull-right btn-search" onclick="test(getCurrentLocation)">Search</button>
+    </form>
+  </div>
+</div>

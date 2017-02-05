@@ -23,15 +23,7 @@
   </head>
 
   <body>
-    <form name="Search">
-      Search Radius: <input type="number" id="radius" min=0/>
-      Calories: <input type="number" id="calories" min=0 />
-      Carbohydrates: <input type="number" id="carbohydrates" min=0 />g
-      Proteins: <input type="number" id="proteins" min=0 />g
-      Fats: <input type="number" id="fats" min=0 />g
-      <input type="button" name="Submit" value="Submit" onclick="test(getCurrentLocation)" />
-    </form>
-    <div class="test"></div>
+    <% include partials/search.ejs %>
 
     <!-- Google Maps -->
     <div id="map"></div>
@@ -47,7 +39,7 @@
   </body>
 
   <!-- jquery -->
-  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
   <script src="scripts/search.js"></script>
   <!-- bootsrapMD javascript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>

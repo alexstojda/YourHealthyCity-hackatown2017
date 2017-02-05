@@ -34,14 +34,15 @@
   background: white;
 }
 
-.restaurant-details .card-block {
+.card-block {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
-  min-width: 200px;
 }
+
+.restaurant-details .card-block { min-width: 200px }
 
 .restaurant-details .card-block .close {
   position: relative;
@@ -68,7 +69,73 @@
   }
 }
 
+/***************************
+* SEARCH
+***************************/
+.search-card {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  left: 10px;
+  top: 10px;
+}
 
+.search-toggle { display: none; }
+
+.search-form {
+  width: 280px;
+}
+
+.close.next-to-button {
+  position: relative;
+  top: 14px;
+}
+
+.close.next-to-h4 {
+  right: 19px;
+  position: relative;
+  top: -2px;
+  z-index: 1;
+}
+
+.search-form .md-form {
+  margin-bottom: 0.5rem;
+}
+
+.search-form .md-form input {
+  height: 1.2rem
+}
+
+.looking-for {
+  position: relative;
+  left: 20px;
+  margin-bottom: 0;
+}
+
+.btn-search {
+  margin-bottom: 20px;
+}
+
+img.rating-apple {
+  width: 27px;
+  position: relative;
+  display: inline-block;
+  top: -5px;
+}
+
+/***************************
+* CREATE
+***************************/
+.create-card {
+  min-width: 300px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.page-title {
+  position: relative;
+  margin-left: 30%;
+}
 
 
 /* copy some mdbootstrap styles since they don't seem to apply */
@@ -103,4 +170,8 @@ button.close {
 
 .btn-flat {
   text-transform: uppercase;
+}
+
+.pull-right {
+  float: right;
 }
