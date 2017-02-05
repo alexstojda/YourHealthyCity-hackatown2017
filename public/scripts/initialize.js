@@ -4,7 +4,6 @@ window.showRestaurantDetails = showRestaurantDetails
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-
 function initMap() {
   const INITIAL_ZOOM = 15
   const mapElem = document.getElementById('map')
@@ -14,6 +13,7 @@ function initMap() {
     zoom: INITIAL_ZOOM,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
+
 
   // location http://stackoverflow.com/questions/24952593/how-to-add-my-location-button-in-google-maps
   var geoloccontrol = new klokantech.GeolocationControl(map, INITIAL_ZOOM)
@@ -27,6 +27,8 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
+      window.getCurrentLocation = pos
 
       map.setCenter(pos);
 

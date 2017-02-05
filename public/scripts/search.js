@@ -1,5 +1,9 @@
-function test(){
-  $.get("/emeraldrestaurants", function(data, status){
+function test(location){
+  var lat = location.lat
+  var long = location.lng
+  var rad = document.getElementById("radius").value
+  $.get("/restaurants", { latitude:lat, longitude:long, radius:rad }, function(data, status){
+    console.log(data)
     var results = search(data)
   })
 }

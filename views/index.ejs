@@ -23,10 +23,14 @@
   </head>
 
   <body>
-    <input id="calories" value=900></input>
-    <input id="carbohydrates" value=25></input>
-    <input id="proteins" value=9></input>
-    <input id="fats" value=2></input>
+    <form name="Search">
+      Search Radius: <input type="number" id="radius" min=0/>
+      Calories: <input type="number" id="calories" min=0 />
+      Carbohydrates: <input type="number" id="carbohydrates" min=0 />g
+      Proteins: <input type="number" id="proteins" min=0 />g
+      Fats: <input type="number" id="fats" min=0 />g
+      <input type="button" name="Submit" value="Submit" onclick="test(getCurrentLocation)" />
+    </form>
     <div class="test"></div>
 
     <!-- Google Maps -->
