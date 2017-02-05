@@ -9,37 +9,74 @@
     <link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div style="width:80%;margin-left:10%;text-align:center;vertical-align: center;padding: 20px">
+    <h1 class="page-title">Subscribe a restaurant</h1>
+    <div style="width:80%;margin-left:10%;padding: 20px">
+
       <div id="create" class="card create-card">
         <div class="card-block">
           <form id="create-form" class="create-form">
+
             <div class="md-form">
               <input type="text" id="name" class="form-control">
               <label for="name" class="">Name </label>
             </div>
+
             <div class="md-form">
-              <input type="text" id="location" class="form-control">
-              <label for="location" class="">Location </label></div>
-            <div class="md-form">
-              <input type="text" id="name" class="form-control">
-              <label for="name" class="">Name </label>
+              <input type="number" id="longitude" class="form-control">
+              <label for="longitude" class="">Longitude </label>
             </div>
-            <div>Meals:</div>
+
+            <div class="md-form">
+              <input type="number" id="latitude" class="form-control">
+              <label for="latitude" class="">Latitude</label>
+            </div>
+
+            <h2>Publish a meal:</h2>
+
+            <div class="meal">
+              <div class="md-form">
+                <input type="text" id="mealname" class="form-control">
+                <label for="mealname" class="">Name </label>
+              </div>
+
+              <div class="md-form">
+                <input type="number" id="price" class="form-control">
+                <label for="price" class="">Price ($)</label>
+              </div>
+
+              <div class="md-form">
+                <input type="number" id="calories" class="form-control">
+                <label for="calories" class="">Calories</label>
+              </div>
+
+              <div class="md-form">
+                <input type="number" id="carbohydrates_grams" class="form-control">
+                <label for="carbohydrates_grams" class="">Carbohydrates (g)</label>
+              </div>
+
+              <div class="md-form">
+                <input type="number" id="proteins_grams" class="form-control">
+                <label for="proteins_grams" class="">Proteins (g)</label>
+              </div>
+
+              <div class="md-form">
+                <input type="number" id="fats_grams" class="form-control">
+                <label for="fats_grams" class="">Fats (g)</label>
+              </div>
+
+              <button type="button" class="btn btn-primary" onclick="createRestaurant()">Create</button>
+            </div>
           </form>
         </div>
       </div>
+
     </div>
 
+    <!-- jquery -->
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="scripts/create.js"></script>
 
-    name
-    location
-    meals
-      name
-      price
-      nutrition
-        calories
-        carbohydrates_grams
-        proteins_grams
-        fats_grams
+    <!-- bootsrapMD javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
   </body>
 </html>

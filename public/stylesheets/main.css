@@ -89,7 +89,19 @@
   top: 14px;
 }
 
+/***************************
+* CREATE
+***************************/
+.create-card {
+  min-width: 300px;
+  width: 50%;
+  margin: 0 auto;
+}
 
+.page-title {
+  position: relative;
+  margin-left: 30%;
+}
 
 
 /* copy some mdbootstrap styles since they don't seem to apply */
