@@ -12,7 +12,8 @@
     "bootstrap": "^3.3.7",
     "ejs": "^2.4.1",
     "express": "4.13.3",
-    "geolib": "^2.0.22"
+    "geolib": "^2.0.22",
+    "mongodb": "^2.2.22"
   },
   "repository": {
     "type": "git",

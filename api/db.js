@@ -6,7 +6,8 @@ const geolib = require('geolib');
 MongoClient = require('mongodb').MongoClient, assert = require('assert');
 
 // Connection URL
-url = 'mongodb://localhost:27017/healthycity';
+url = 'mongodb://healthycity:xl2etco@ds139979.mlab.com:39979/heroku_mjj4f02b';
+// url = 'mongodb://localhost:27017/healthycity';
 
 function getRestaurantByID(id, callback) {
     MongoClient.connect(url, function (err, db) {
