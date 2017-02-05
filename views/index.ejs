@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <!-- bootstrapMD css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css"/>
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -15,44 +15,50 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00d448">
     <meta name="theme-color" content="#ffffff">
-  <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: calc(100% - 56px);
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: calc(100% - 56px);
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <nav class="main-navbar navbar navbar-dark green">
-      <a id="search-toggle" class="search-toggle" onclick="expandSearch()">Search</a>
-      <img class="main-logo" src="Logowithstroke.png"/>
-    </nav>
-    <% include partials/search.ejs %>
+<body>
+<nav class="main-navbar navbar navbar-dark green">
+    <a id="search-toggle" class="search-toggle" onclick="expandSearch()">Search</a>
 
-    <!-- Google Maps -->
-    <div id="map"></div>
+    <div class="logo-name">
+        <h2 class="header-name">YourHealthy.City</h2>
+        <img class="main-logo" src="Logowithstroke.png"/>
+    </div>
+</nav>
+<% include partials/search.ejs %>
 
-    <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
-    <script src="scripts/initialize.js"></script>
+<!-- Google Maps -->
+<div id="map"></div>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjRzs7JZLOITyIzbgICgZeQIqyqzcAfMo&callback=initMap">
-    </script>
+<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+<script src="scripts/initialize.js"></script>
 
-    <% include partials/detail-view.ejs %>
-  </body>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjRzs7JZLOITyIzbgICgZeQIqyqzcAfMo&callback=initMap">
+</script>
 
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-  <script src="scripts/search.js"></script>
-  <!-- bootsrapMD javascript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+<% include partials/detail-view.ejs %>
+</body>
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="scripts/search.js"></script>
+<!-- bootsrapMD javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
 </html>
