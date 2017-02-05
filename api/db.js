@@ -48,11 +48,7 @@ function getMealsFromRestaurant(id, callback) {
     });
 }
 
-function getRestaurantsInRadius(radius, callback) {
-    const position = {
-        latitude: 45,
-        longitude: -73
-    };
+function getRestaurantsInRadius(postiion, radius, callback) {
 
     MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);

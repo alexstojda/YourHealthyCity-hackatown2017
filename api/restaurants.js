@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     }
     const radiusMeters = parseInt(req.query.radius) || 500
 
-    getRestaurantsInRadius(radiusMeters, function (restaurantsInRadius) {
+    getRestaurantsInRadius(position, radiusMeters, function (restaurantsInRadius) {
         res.send(restaurantsInRadius);
     });
 
