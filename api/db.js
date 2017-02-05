@@ -48,7 +48,7 @@ function getMealsFromRestaurant(id, callback) {
     });
 }
 
-function getRestaurantsInRadius(postiion, radius, callback) {
+function getRestaurantsInRadius(position, radius, callback) {
 
     MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
