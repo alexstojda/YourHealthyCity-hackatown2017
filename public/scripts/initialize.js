@@ -1,10 +1,14 @@
+window.showRestaurantDetails = showRestaurantDetails
+
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  const mapElem = document.getElementById('map')
+
+  var map = new google.maps.Map(mapElem, {
     center: {lat: -34.397, lng: 150.644},
     zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -74,13 +78,21 @@ function initMap() {
         }
       ];
 
-for (i = 0; i < restaurants.length; i++) {
-  var location = restaurants[i].location;
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(location.latitude, location.longitude),
-    map: map
-  });
-}
+      restaurants.forEach(restaurant => {
+        let location = restaurant.location
+
+        let marker = new google.maps.Marker({
+          position: new google.maps.LatLng(location.latitude, location.longitude),
+          map
+        })
+
+        // display restaurant details
+        marker.addListener('click', e => {
+          map.setZoom(15)
+          map.setCenter(marker.getPosition())
+          window.showRestaurantDetails(restaurant)
+        })
+      })
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -95,4 +107,21 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
+}
+
+function showRestaurantDetails(restaurant){
+  const detailsElem = $('#details')
+  const mealsElem = detailsElem.find('.meals')
+
+  detailsElem.css({
+    top: 'calc(50% + 24px)',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    display: 'block'
+  })
+
+  restaurant.meals.forEach(meal => {
+    let mealElem = `<p>${meal.name}</p>`
+    mealsElem.append(mealElem)
+  })
 }
