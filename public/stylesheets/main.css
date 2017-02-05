@@ -60,6 +60,14 @@
   float: right;
 }
 
+/* phone display */
+@media all and (max-width: 980px){
+  .restaurant-details {
+    width: 100%;
+    bottom: 0;
+  }
+}
+
 
 
 

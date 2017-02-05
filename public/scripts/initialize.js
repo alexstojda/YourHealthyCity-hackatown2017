@@ -23,6 +23,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
       map.setCenter(pos);
 
       var restaurants = [
@@ -90,6 +91,7 @@ function initMap() {
         marker.addListener('click', e => {
           map.setZoom(15)
           map.setCenter(marker.getPosition())
+          if ($(window).width() <= 980){ map.panBy(0, 100) }
           window.showRestaurantDetails(restaurant)
         })
       })
