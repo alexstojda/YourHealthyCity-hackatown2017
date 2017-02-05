@@ -112,7 +112,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function showRestaurantDetails(restaurant){
   const detailsElem = $('#details')
   const mealsElem = detailsElem.find('.meals')
-  let mealsHtml = ''
 
   // move and display details elem
   detailsElem.css({
@@ -130,13 +129,49 @@ function showRestaurantDetails(restaurant){
   // set name
   detailsElem.find('.name').text(restaurant.name)
 
-  // add meals
+  // set meals
+  mealsElem.html('')
   restaurant.meals.forEach(meal => {
-    let mealElem = $(`<p>${meal.name}</p>`)
+    const nut = meal.nutrition
+    let mealElem = $(`<p>
+      <a class="meal-name">${meal.name}</a>
+    </p>`)
 
-    mealElem
-    mealsHtml += mealElem
+    // show/hide meal details on click
+    mealElem.on('click', e => {
+      let existingDetails = mealElem.find('.meal-details')
+
+      if (existingDetails.length){
+        existingDetails.remove()
+      } else {
+        // accordion behavior
+        detailsElem.find('.meal-details').remove()
+        mealElem.append(`
+            <ul class="meal-details">
+              <li class="detail-item">
+                <label>Calories</label>
+                <span>${nut.calories}</span>
+              </li>
+
+              <li class="detail-item">
+                <label>Fat</label>
+                <span>${nut.fats_grams}g</span>
+              </li>
+
+              <li class="detail-item">
+                <label>Proteins</label>
+                <span>${nut.proteins_grams}g</span>
+              </li>
+
+              <li class="detail-item">
+                <label>Carbohydrates</label>
+                <span>${nut.carbohydrates_grams}g</span>
+              </li>
+            </ul>
+          `)
+        }
+      })
+
+    mealsElem.append(mealElem)
   })
-
-  mealsElem.html(mealsHtml)
 }
