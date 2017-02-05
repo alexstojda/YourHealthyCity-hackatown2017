@@ -1,6 +1,6 @@
 function createRestaurant(){
   var restaurant = {}
-
+  var currentPlace = window.getInputPlace
   $('#create-form').find('.md-form input').toArray().forEach(function(elem){
      var value = elem.value
      var field = $(elem).attr('id')
@@ -15,8 +15,8 @@ function createRestaurant(){
     var restaurantData = {
       name: restaurant.name,
       location: {
-        longitude: restaurant.longitude,
-        latitude: restaurant.latitude
+        longitude: currentPlace.lng(),
+        latitude: currentPlace.lat()
       },
       meals: [
         {
@@ -42,14 +42,25 @@ function createRestaurant(){
   }
 }
 
-(function initializePlacesSearch(){
-  var defaultBounds = new google.maps.LatLngBounds(
-  new google.maps.LatLng(-33.8902, 151.1759),
-  new google.maps.LatLng(-33.8474, 151.2631));
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
 
-  var input = document.getElementById('gmaps');
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-  var searchBox = new google.maps.places.SearchBox(input, {
-    bounds: defaultBounds
-  });
-})()
+      function initAutocomplete() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('gmaps');
+        var searchBox = new google.maps.places.SearchBox(input);
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+          if (places.length == 0)
+            window.getInputPlace = null
+          else
+            window.getInputPlace = places[0].geometry.location
+        });
+      }
