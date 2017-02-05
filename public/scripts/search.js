@@ -2,7 +2,7 @@ function test(location){
   var lat = location.lat
   var long = location.lng
   var rad = 5000000
-  $.get("/emeraldrestaurants", { latitude:lat, longitude:long, radius:rad }, function(data, status){
+  $.get("/restaurants", { latitude:lat, longitude:long, radius:rad }, function(data, status){
     results = search(data)
     window.setMarkers(results)
     collapseSearch()

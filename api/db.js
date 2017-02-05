@@ -14,7 +14,7 @@ module.exports = {
         MongoClient.connect(url, function (err, db) {
             assert.equal(null, err);
 
-            let collection = db.collection('restaurant');
+            let collection = db.collection('restaurants');
 
             collection.findOne({'id': id}, function (err, docs) {
                 assert.equal(err, null);
