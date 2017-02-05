@@ -6,13 +6,17 @@ window.showRestaurantDetails = showRestaurantDetails
 // locate you.
 
 function initMap() {
+  const INITIAL_ZOOM = 15
   const mapElem = document.getElementById('map')
 
   var map = new google.maps.Map(mapElem, {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 14,
+    zoom: INITIAL_ZOOM,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
+
+  // location http://stackoverflow.com/questions/24952593/how-to-add-my-location-button-in-google-maps
+  var geoloccontrol = new klokantech.GeolocationControl(map, INITIAL_ZOOM)
 
   var infoWindow = new google.maps.InfoWindow({map: map});
 
