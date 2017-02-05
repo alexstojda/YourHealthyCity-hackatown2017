@@ -116,6 +116,13 @@
   margin-bottom: 20px;
 }
 
+img.rating-apple {
+  width: 27px;
+  position: relative;
+  display: inline-block;
+  top: -5px;
+}
+
 /***************************
 * CREATE
 ***************************/
