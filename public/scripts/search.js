@@ -114,12 +114,14 @@ function collapseSearch(){
   searchToggle = $('#search-toggle')
 
   searchForm.hide()
+  $('#search-form-header').hide()
   $('#search').css('top', 58)
   searchToggle.show()
 }
 
 function expandSearch(){
   $('#search-toggle').hide()
-  $('#search').css('top', 0)
+  $('#search-form-header').show()
+  $('#search').css('top', 10)
   $('#search-form').show()
 }

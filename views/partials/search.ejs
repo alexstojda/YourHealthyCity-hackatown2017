@@ -1,4 +1,11 @@
 <div id="search" class="card search-card">
+  <header id="search-form-header">
+    <button type="button" class="close next-to-h4" onclick="collapseSearch()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 class="looking-for">I'm looking to eat...</h3>
+  </header>
+
   <div class="card-block">
     <a id="search-toggle" class="search-toggle" onclick="expandSearch()">Search</a>
 
@@ -24,11 +31,7 @@
         <label for="fats" class="">Fats (g)</label>
       </div>
 
-      <button type="button" class="btn btn-primary" onclick="test(getCurrentLocation)">Search</button>
-      <button type="button" class="close next-to-button" onclick="collapseSearch()">
-          <span aria-hidden="true">&times;</span>
-      </button>
-
+      <button type="button" class="btn btn-primary pull-right btn-search" onclick="test(getCurrentLocation)">Search</button>
     </form>
   </div>
 </div>
