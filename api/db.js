@@ -1,19 +1,20 @@
 /**
  * Created by alexs on 2017-02-04.
  */
+const geolib = require('geolib');
 
-var MongoClient = require('mongodb').MongoClient, assert = require('assert');
+MongoClient = require('mongodb').MongoClient, assert = require('assert');
 
 // Connection URL
-var url = 'mongodb://localhost:27017/healthycity';
+url = 'mongodb://localhost:27017/healthycity';
 
 function getRestaurantByID(id, callback) {
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
 
-        var collection = db.collection('restaurant');
+        let collection = db.collection('restaurant');
 
-        collection.findOne({'id': id}, function(err, docs) {
+        collection.findOne({'id': id}, function (err, docs) {
             assert.equal(err, null);
             callback(docs);
         });
@@ -21,12 +22,12 @@ function getRestaurantByID(id, callback) {
 }
 
 function getRestaurantsByName(name, callback) {
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
 
-        var collection = db.collection('restaurants');
+        let collection = db.collection('restaurants');
 
-        collection.findOne({'name': name}, function(err, docs) {
+        collection.find({'name': name}).toArray( function (err, docs) {
             assert.equal(err, null);
             callback(docs);
         });
@@ -34,14 +35,38 @@ function getRestaurantsByName(name, callback) {
 }
 
 function getMealsFromRestaurant(id, callback) {
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
 
-        var collection = db.collection('restaurants');
+        let collection = db.collection('restaurants');
 
-        collection.findOne({'id': id}, function(err, docs) {
+        collection.findOne({'id': id}, function (err, docs) {
             assert.equal(err, null);
             callback(docs.meals);
         });
     });
 }
+
+function getRestaurantsInRadius(radius, callback) {
+    const position = {
+        latitude: 45,
+        longitude: -73
+    };
+
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+
+        let collection = db.collection('restaurants');
+
+        collection.find({
+            '$where': function () {
+                return geolib.getDistance(position, this['location']) <= radius;
+            }
+        }).toArray(function(err,data){
+            callback(data);
+        });
+    });
+}
+getRestaurantsInRadius(10, function (data) {
+    console.log(data);
+});
