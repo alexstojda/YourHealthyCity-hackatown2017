@@ -16,6 +16,10 @@ app.get('/', function(request, response) {
 const restaurantsAPI = require(`${__dirname}/api/restaurants`)
 app.use('/restaurants', restaurantsAPI)
 
+app.get('/create',function(request,response) {
+  response.render('create')
+});
+
 // stub api call for restaurants until the backend is implemented
 app.get('/emeraldrestaurants', (req, res) => {
   res.send([
