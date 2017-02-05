@@ -7,7 +7,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
-	<style>
+  <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
@@ -23,6 +23,12 @@
   </head>
 
   <body>
+    <input id="calories" value=900></input>
+    <input id="carbohydrates" value=25></input>
+    <input id="proteins" value=9></input>
+    <input id="fats" value=2></input>
+    <div class="test"></div>
+
     <!-- Google Maps -->
     <div id="map"></div>
 
@@ -37,8 +43,8 @@
   </body>
 
   <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <script src="scripts/search.js"></script>
   <!-- bootsrapMD javascript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
 </html>
