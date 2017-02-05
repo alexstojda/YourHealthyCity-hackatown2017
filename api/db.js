@@ -64,6 +64,3 @@ function getRestaurantsInRadius(postiion, radius, callback) {
         });
     });
 }
-getRestaurantsInRadius(10, function (data) {
-    console.log(data);
-});
