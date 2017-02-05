@@ -69,6 +69,10 @@
   }
 }
 
+.main-navbar {
+  height: 56px;
+}
+
 /***************************
 * SEARCH
 ***************************/
@@ -80,7 +84,12 @@
   top: 10px;
 }
 
-.search-toggle { display: none; }
+.search-toggle {
+  display: none;
+  line-height: 54px;
+  padding-left: 20px;
+  color: #fff;
+}
 
 .search-form {
   width: 280px;
@@ -121,6 +130,13 @@ img.rating-apple {
   position: relative;
   display: inline-block;
   top: -5px;
+}
+
+.main-logo {
+  position: absolute;
+  right: 4px;
+  width: 46px;
+  top: 3px;
 }
 
 /***************************
