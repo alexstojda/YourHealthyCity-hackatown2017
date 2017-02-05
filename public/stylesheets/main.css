@@ -39,3 +39,25 @@
   padding: 1.25rem;
   min-width: 200px;
 }
+
+.restaurant-details .card-block .close {
+  position: relative;
+  top: 22px;
+}
+
+/* copy some mdbootstrap styles since they don't seem to apply */
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}

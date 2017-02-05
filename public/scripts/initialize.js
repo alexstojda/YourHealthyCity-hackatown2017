@@ -114,6 +114,7 @@ function showRestaurantDetails(restaurant){
   const mealsElem = detailsElem.find('.meals')
   let mealsHtml = ''
 
+  // move and display details elem
   detailsElem.css({
     top: 'calc(50% + 24px)',
     left: '50%',
@@ -121,10 +122,19 @@ function showRestaurantDetails(restaurant){
     display: 'block'
   })
 
+  // allow the "close" button to close the popup
+  detailsElem.find('.close').one('click', e => {
+    detailsElem.css('display', 'none')
+  })
+
+  // set name
   detailsElem.find('.name').text(restaurant.name)
 
+  // add meals
   restaurant.meals.forEach(meal => {
-    let mealElem = `<p>${meal.name}</p>`
+    let mealElem = $(`<p>${meal.name}</p>`)
+
+    mealElem
     mealsHtml += mealElem
   })
 
