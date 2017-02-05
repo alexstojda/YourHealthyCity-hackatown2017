@@ -1,10 +1,14 @@
+window.showRestaurantDetails = showRestaurantDetails
+
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  const mapElem = document.getElementById('map')
+
+  var map = new google.maps.Map(mapElem, {
     center: {lat: -34.397, lng: 150.644},
     zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -74,13 +78,21 @@ function initMap() {
         }
       ];
 
-for (i = 0; i < restaurants.length; i++) {
-  var location = restaurants[i].location;
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(location.latitude, location.longitude),
-    map: map
-  });
-}
+      restaurants.forEach(restaurant => {
+        let location = restaurant.location
+
+        let marker = new google.maps.Marker({
+          position: new google.maps.LatLng(location.latitude, location.longitude),
+          map
+        })
+
+        // display restaurant details
+        marker.addListener('click', e => {
+          map.setZoom(15)
+          map.setCenter(marker.getPosition())
+          window.showRestaurantDetails(restaurant)
+        })
+      })
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -95,4 +107,72 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
+}
+
+function showRestaurantDetails(restaurant){
+  const detailsElem = $('#details')
+  const mealsElem = detailsElem.find('.meals')
+
+  // move and display details elem
+  detailsElem.css({
+    top: 'calc(50% + 24px)',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    display: 'block'
+  })
+
+  // allow the "close" button to close the popup
+  detailsElem.find('.close').one('click', e => {
+    detailsElem.css('display', 'none')
+  })
+
+  // set name
+  detailsElem.find('.name').text(restaurant.name)
+
+  // set meals
+  mealsElem.html('')
+  restaurant.meals.forEach(meal => {
+    const nut = meal.nutrition
+    let mealElem = $(`<p>
+      <a class="meal-name">${meal.name}</a>
+      <span class="meal-rating rating-${meal.rating}">${meal.rating || '?'}</span>
+    </p>`)
+
+    // show/hide meal details on click
+    mealElem.on('click', e => {
+      let existingDetails = mealElem.find('.meal-details')
+
+      if (existingDetails.length){
+        existingDetails.remove()
+      } else {
+        // accordion behavior
+        detailsElem.find('.meal-details').remove()
+        mealElem.append(`
+            <ul class="meal-details">
+              <li class="detail-item">
+                <label>Calories</label>
+                <span>${nut.calories}</span>
+              </li>
+
+              <li class="detail-item">
+                <label>Fat</label>
+                <span>${nut.fats_grams}g</span>
+              </li>
+
+              <li class="detail-item">
+                <label>Proteins</label>
+                <span>${nut.proteins_grams}g</span>
+              </li>
+
+              <li class="detail-item">
+                <label>Carbohydrates</label>
+                <span>${nut.carbohydrates_grams}g</span>
+              </li>
+            </ul>
+          `)
+        }
+      })
+
+    mealsElem.append(mealElem)
+  })
 }

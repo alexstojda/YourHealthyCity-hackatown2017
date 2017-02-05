@@ -25,3 +25,74 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
+/***************************
+* DETAILS
+***************************/
+.restaurant-details {
+  position: absolute;
+  display: none;
+  background: white;
+}
+
+.restaurant-details .card-block {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  min-width: 200px;
+}
+
+.restaurant-details .card-block .close {
+  position: relative;
+  top: 22px;
+}
+
+.detail-item:not(:last-child){
+  padding-bottom: 8px;
+}
+
+.detail-item label + span {
+  float: right;
+}
+
+.meal-rating {
+  float: right;
+}
+
+
+
+
+/* copy some mdbootstrap styles since they don't seem to apply */
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+
+.btn-flat {
+  position: relative;
+  padding: 8px 30px;
+  border: none;
+  margin: 10px;
+  text-decoration: none;
+  outline: 0!important;
+}
+
+.btn-flat, .btn-flat:focus {
+  background-color: transparent;
+}
+
+.btn-flat {
+  text-transform: uppercase;
+}
