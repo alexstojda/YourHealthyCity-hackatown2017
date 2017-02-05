@@ -135,6 +135,7 @@ function showRestaurantDetails(restaurant){
     const nut = meal.nutrition
     let mealElem = $(`<p>
       <a class="meal-name">${meal.name}</a>
+      <span class="meal-rating rating-${meal.rating}">${meal.rating || '?'}</span>
     </p>`)
 
     // show/hide meal details on click
