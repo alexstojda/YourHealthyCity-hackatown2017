@@ -112,6 +112,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function showRestaurantDetails(restaurant){
   const detailsElem = $('#details')
   const mealsElem = detailsElem.find('.meals')
+  let mealsHtml = ''
 
   detailsElem.css({
     top: 'calc(50% + 24px)',
@@ -120,8 +121,12 @@ function showRestaurantDetails(restaurant){
     display: 'block'
   })
 
+  detailsElem.find('.name').text(restaurant.name)
+
   restaurant.meals.forEach(meal => {
     let mealElem = `<p>${meal.name}</p>`
-    mealsElem.append(mealElem)
+    mealsHtml += mealElem
   })
+
+  mealsElem.html(mealsHtml)
 }
