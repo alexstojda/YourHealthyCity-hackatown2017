@@ -23,15 +23,7 @@
   </head>
 
   <body>
-    <form name="Search">
-      Search Radius: <input type="number" id="radius" min=0/>
-      Calories: <input type="number" id="calories" min=0 />
-      Carbohydrates: <input type="number" id="carbohydrates" min=0 />g
-      Proteins: <input type="number" id="proteins" min=0 />g
-      Fats: <input type="number" id="fats" min=0 />g
-      <input type="button" name="Submit" value="Submit" onclick="test(getCurrentLocation)" />
-    </form>
-    <div class="test"></div>
+    <% include partials/search.ejs %>
 
     <!-- Google Maps -->
     <div id="map"></div>

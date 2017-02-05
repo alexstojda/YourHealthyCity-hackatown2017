@@ -1,10 +1,11 @@
 function test(location){
   var lat = location.lat
   var long = location.lng
-  var rad = document.getElementById("radius").value
+  var rad = 5000000
   $.get("/emeraldrestaurants", { latitude:lat, longitude:long, radius:rad }, function(data, status){
     results = search(data)
     window.setMarkers(results)
+    collapseSearch()
   })
 }
 
@@ -106,4 +107,19 @@ function sortByHighestRating(restaurants){
     return rateA == rateB ? 0 : rateA > rateB ? -1 : 1
   })
   return restaurants
+}
+
+function collapseSearch(){
+  searchForm = $('#search-form')
+  searchToggle = $('#search-toggle')
+
+  searchForm.hide()
+  $('#search').css('top', 58)
+  searchToggle.show()
+}
+
+function expandSearch(){
+  $('#search-toggle').hide()
+  $('#search').css('top', 0)
+  $('#search-form').show()
 }
