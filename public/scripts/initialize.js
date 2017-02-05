@@ -34,19 +34,31 @@ function initMap() {
 
       window.setMarkers = function(restaurants){
           restaurants.forEach(restaurant => {
-          let location = restaurant.location
+            let location = restaurant.location
+            let rating = restaurant.bestRating
+            var image=""
 
-          let marker = new google.maps.Marker({
-            position: new google.maps.LatLng(location.latitude, location.longitude),
-            map: map
-          })
+            if(rating == 0)
+              image = "pale_XMarker.png"
+            else if(rating>0 && rating<2.5)
+              image = "red_Marker.png"
+            else if(rating>=2.5 && rating < 4)
+              image = "orange_Marker.png"
+            else if(rating>=4)
+              image = "green_Marker.png"
 
-          // display restaurant details
-          marker.addListener('click', e => {
-            map.setZoom(15)
-            map.setCenter(marker.getPosition())
-            if ($(window).width() <= 980){ map.panBy(0, 100) }
-            window.showRestaurantDetails(restaurant)
+            let marker = new google.maps.Marker({
+              position: new google.maps.LatLng(location.latitude, location.longitude),
+              map: map,
+              icon:image
+            })
+
+            // display restaurant details
+            marker.addListener('click', e => {
+              map.setZoom(15)
+              map.setCenter(marker.getPosition())
+              if ($(window).width() <= 980){ map.panBy(0, 100) }
+              window.showRestaurantDetails(restaurant)
           })
         })
       }
