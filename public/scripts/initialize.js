@@ -18,8 +18,6 @@ function initMap() {
   // location http://stackoverflow.com/questions/24952593/how-to-add-my-location-button-in-google-maps
   var geoloccontrol = new klokantech.GeolocationControl(map, INITIAL_ZOOM)
 
-  var infoWindow = new google.maps.InfoWindow({map: map});
-
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
