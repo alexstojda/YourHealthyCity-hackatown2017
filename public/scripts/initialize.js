@@ -32,75 +32,24 @@ function initMap() {
 
       map.setCenter(pos);
 
-      var restaurants = [
-        {
-        "id": 1,
-        "name": "Foo",
-        "location": {
-        "latitude": 45.5085997,
-        "longitude": -73.6207597
-        },
-        "meals": [
-        {
-        "name": "steak",
-        "price": 17.5,
-        "nutrition": {
-        "calories": 1150,
-        "carbohydrates_grams": 20,
-        "proteins_grams": 12,
-        "fats_grams": 4
-        }
-        },
-        {
-        "name": "salad",
-        "price": 8,
-        "nutrition": {
-        "calories": 780,
-        "carbohydrates_grams": 7,
-        "proteins_grams": 0.5,
-        "fats_grams": 0.1
-        }
-        }
-        ]
-        },
-        {
-        "id": 2,
-        "name": "Bar",
-        "location": {
-        "latitude": 45.510996,
-        "longitude": -73.61647
-        },
-        "meals": [
-        {
-        "name": "rice",
-        "price": 12,
-        "nutrition": {
-        "calories": 900,
-        "carbohydrates_grams": 25,
-        "proteins_grams": 9,
-        "fats_grams": 2
-        }
-        }
-        ]
-        }
-      ];
+      window.setMarkers = function(restaurants){
+          restaurants.forEach(restaurant => {
+          let location = restaurant.location
 
-      restaurants.forEach(restaurant => {
-        let location = restaurant.location
+          let marker = new google.maps.Marker({
+            position: new google.maps.LatLng(location.latitude, location.longitude),
+            map: map
+          })
 
-        let marker = new google.maps.Marker({
-          position: new google.maps.LatLng(location.latitude, location.longitude),
-          map
+          // display restaurant details
+          marker.addListener('click', e => {
+            map.setZoom(15)
+            map.setCenter(marker.getPosition())
+            if ($(window).width() <= 980){ map.panBy(0, 100) }
+            window.showRestaurantDetails(restaurant)
+          })
         })
-
-        // display restaurant details
-        marker.addListener('click', e => {
-          map.setZoom(15)
-          map.setCenter(marker.getPosition())
-          if ($(window).width() <= 980){ map.panBy(0, 100) }
-          window.showRestaurantDetails(restaurant)
-        })
-      })
+      }
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -143,7 +92,7 @@ function showRestaurantDetails(restaurant){
     const nut = meal.nutrition
     let mealElem = $(`<p>
       <a class="meal-name">${meal.name}</a>
-      <span class="meal-rating rating-${meal.rating}">${meal.rating || '?'}</span>
+      <span class="meal-rating rating-${meal.rating}">${(meal.rating && meal.rating + '/5') || 'N/A'}</span>
     </p>`)
 
     // show/hide meal details on click

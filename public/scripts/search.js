@@ -2,9 +2,9 @@ function test(location){
   var lat = location.lat
   var long = location.lng
   var rad = document.getElementById("radius").value
-  $.get("/restaurants", { latitude:lat, longitude:long, radius:rad }, function(data, status){
-    console.log(data)
-    var results = search(data)
+  $.get("/emeraldrestaurants", { latitude:lat, longitude:long, radius:rad }, function(data, status){
+    results = search(data)
+    window.setMarkers(results)
   })
 }
 
@@ -26,13 +26,10 @@ function search(restaurants){
               meal.nutrition.proteins_grams, proteins,
               meal.nutrition.fats_grams, fats)
       avg = Math.round(avg*100)/100
-      if(avg > 100){
-        avg = 100 - (avg - 100)
-      }
       var rating = Math.round(avg * 5)/100
       meal.rating=rating
       totalMealRatings+=rating
-      if(avg > restaurant.bestRating)
+      if(rating > restaurant.bestRating)
         restaurant.bestRating=rating
     }
     restaurant.meals = sortMealsByRating(restaurant.meals)
@@ -40,34 +37,56 @@ function search(restaurants){
   }
   restaurants = sortByHighestRating(restaurants)
 
-
-
-  var fuckYouCuck = JSON.stringify(restaurants)
-  $(".test").html(fuckYouCuck)
+  return restaurants
 }
 
 function getRating(cals,targetCals,carbs,targetCarbs,prots,targetProts,fats,targetFats){
-  var avg = (checkCalories(cals,targetCals) + checkCarbs(carbs,targetCarbs) + checkProteins(prots,targetProts) + checkFats(fats,targetFats))/4
+  var calRating = checkCalories(cals, targetCals)
+  var carbRating = checkCalories(carbs,targetCarbs)
+  var protRating = checkProteins(prots, targetProts)
+  var fatRating = checkFats(fats,targetFats)
+  var ratingsApplicable = 4
+
+  if(calRating == 0)
+    ratingsApplicable--
+  if(carbRating == 0)
+    ratingsApplicable--
+  if(protRating == 0)
+    ratingsApplicable--
+  if(fatRating == 0)
+    ratingsApplicable--
+
+  var avg = (calRating + carbRating + protRating + fatRating)/ratingsApplicable
+  if(!isFinite(avg))
+    return 0
   return avg
 }
 
 function checkCalories(cals,targetCals){
   difference = cals/targetCals * 100
+  if(difference > 100)
+    difference = targetCals/cals * 100
   return difference
 }
 
 function checkCarbs(carbs,targetCarbs){
   difference = carbs/targetCarbs * 100
+  if(difference > 100)
+    difference = targetCarbs/carbs * 100
   return difference
 }
 
 function checkProteins(prots,targetProts){
   difference = prots/targetProts * 100
+  if(difference > 100)
+    difference = targetProts/prots * 100
   return difference
 }
 
 function checkFats(fats,targetFats){
   difference = fats/targetFats * 100
+  if(difference > 100)
+    difference = targetFats/fats * 100
   return difference
 }
 
