@@ -5,7 +5,7 @@ Picture this: You are walking down the street and you start to get hungry. You'v
 
 Introducing **[YourHealthy.City](http://YourHealthy.City)** ! An easy, and intuitive way to find meals that meet your specific dietary needs.
 
-![App Icon in Launcher](https://challengepost-s3-challengepost.netdnassl.com/photos/production/software_photos/000/471/065/datas/gallery.jpg) ![HealthyCity app](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/471/066/datas/gallery.jpg) ![HealthyCity on Desktop](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/471/086/datas/gallery.jpg)
+![App Icon in Launcher](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/471/065/datas/gallery.jpg) ![HealthyCity app](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/471/066/datas/gallery.jpg) ![HealthyCity on Desktop](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/471/086/datas/gallery.jpg)
 
 ## What it does
 When you first open [YourHealthy.City](http://YourHealthy.City), you are asked to enter parameters (Calories, Carbohydrates(g), Proteins(g) and Fats(g)),  as to what you need/want in your meal. The app then finds restaurants nearby and gives you ratings to tell you if their meal is close to meeting your requirements. 
