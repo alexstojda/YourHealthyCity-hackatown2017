@@ -1,4 +1,38 @@
-# Healthy City APP
+# YourHealthy.city : About the App
+
+## Inspiration
+Picture this: You are walking down the street and you start to get hungry. You've been trying to eat healthy late and have started a diet. However, as you walk down this street, all you see are fast food restaurants, and other places where you aren't sure if they have meals that fit your diet.
+
+Introducing **[YourHealthy.City](http://YourHealthy.City)** ! An easy, and intuitive way to find meals that meet your specific dietary needs.
+## What it does
+When you first open [YourHealthy.City](http://YourHealthy.City), you are asked to enter parameters (Calories, Carbohydrates(g), Proteins(g) and Fats(g)),  as to what you need/want in your meal. The app then finds restaurants nearby and gives you ratings to tell you if their meal is close to meeting your requirements. 
+
+When in the map view, Pins will appear to mark the nearby restaurants, color-coded by how their meals compare to your requirements. A **red** pin means that the restaurant has no meals that are close to the needs you specified, **yellow** means its has at least one meal that is close to satisfying your needs, and **green** means it has at least one meal that almot perfectly matches your meal requirements. 
+
+Now that you have found your restaurant, its time to pick your meal! Tapping/clicking on the pin opens a details view for the given restaurant. It lists details about it, as well as lists the meals it offers with ratings on how the compare to your requirements. Ratings are measured between 0 and 5 apples, 0 being the furthest from your needs, 5 meaning exactly what you need. 
+
+And thats it! You are now ready to take on that diet with one more tool to help you succeed in meeting your goals.
+## How We built it
+The app was written in Javascrip using a Node.JS server and a MongoDB databse. We chose these options so that we could quickly create a working prototype to demonstrate our proof of concept. 
+## What's next for YourHealthy.City
+We have big plans for our application! 
+
+The first improvement we want to make is improve the client facing side of the app, by adding photos of the restaurants we list, as well as photos of the meals that each restaurant offers. We also want to implement an administrative portal for restaurants to manage their listing
+
+**But how do I make money??** - Kevin O'Leary
+
+Well kev, as with any search-based application, there is always ways to make money. With our app, the easiest way to do so is to implement ways for the restaurants to promote themselves, such as prioritized listings, or advertising of promotions. 
+
+Our goal is to build the brand so that we can eventually charge restaurants to list themselves on the app, thus generating even more revenue from our application.
+
+So, with a brand build, and plenty of money-making potential, we believe that [YourHealthy.City](http://YourHealthy.City) will become an excellent way to help people get healthy and stay healthy.
+
+After all, **A healthy city, is a smart city**
+
+##Find out more : 
+[GoogleSlides Presentation](https://docs.google.com/presentation/d/1nl8f_ICTYGokdCP4vbV6s1vtar2Dyv_n5xcpWL2FWgI/edit?usp=drivesdk)
+
+# YourHealthy.City : Installation
 
 ## Getting Started
 1- `git clone https://github.com/skiracerdude/hackatown2017.git`
